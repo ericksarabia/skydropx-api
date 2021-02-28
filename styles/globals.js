@@ -14,13 +14,14 @@ const GlobalStyles = createGlobalStyle`
 		text-decoration: none;
 	}
 
-	h3 {
+	h1 {
 		margin: 0;
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 
 	p, span, a, b {
 		font-size: 1.4rem;
+		margin: 0;
 	}
 
 	* {
@@ -41,8 +42,12 @@ const GlobalStyles = createGlobalStyle`
 	button {
 		text-transform: uppercase;
 		font-weight: bold;
-		font-size: 1rem;
+		font-size: 1.5rem;
 		background: #4e34e1;
+		color: #fff;
+		border: 0;
+		border-radius: 4px;
+		cursor: pointer;
 	}
 `;
 
