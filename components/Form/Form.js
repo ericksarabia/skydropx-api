@@ -1,15 +1,16 @@
-import { Wrapper, Image, Input, Button, Label, Group } from "./styled";
+import { Wrapper, Image, Input, Button, Label, Group, Message } from "./styled";
 
-const Form = ({ handleClick, inputs }) => {
+const Form = ({ handleClick, inputs, message }) => {
 	return (
 		<Wrapper>
 			<Image alt="skydropx" src="/logo.svg" />
 			{inputs.map((input) => (
 				<Group>
 					{input.label && <Label>{input.label}</Label>}
-					<Input type="text" placeholder={input.placeholder} id={input.origin} />
+					<Input type={input.type} placeholder={input.placeholder} id={input.id} />
 				</Group>
 			))}
+			{message && <Message>Todos los campos son obligatorios</Message>}
 			<Button onClick={handleClick}>Aceptar</Button>
 		</Wrapper>
 	);

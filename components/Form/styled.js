@@ -10,11 +10,11 @@ const Wrapper = styled.section`
 
 const Image = styled.img`
 	width: 15rem;
-	margin: 1rem;
+	margin: 2rem;
 `;
 
 const Input = styled.input`
-	width: 18rem;
+	width: 20rem;
 	height: 3.5rem;
 	border: 2px solid #4e34e1;
 	border-radius: 4px;
@@ -27,21 +27,23 @@ const Input = styled.input`
 
 const Button = styled.button`
 	background: #4e34e1;
-	width: 18rem;
+	width: 20rem;
 	height: 3rem;
 	border: 1px solid #4e34e1;
 	color: #fff;
 	border-radius: 4px;
 	margin-top: 1rem;
+	&:focus {
+		outline: none;
+	}
 `;
 
 const Label = styled.label`
 	color: #04142a;
-	width: 18rem;
+	width: 20rem;
 	font-weight: bold;
 	margin-bottom: 0.5rem;
 	text-transform: uppercase;
-	margin-top: 1rem;
 `;
 
 const Group = styled.div`
@@ -49,4 +51,13 @@ const Group = styled.div`
 	flex-direction: column;
 `;
 
-export { Wrapper, Image, Input, Button, Label, Group };
+const Message = styled.span`
+	color: #e56475;
+	font-weight: bold;
+	margin-top: 1rem;
+	text-transform: uppercase;
+	font-size: 1rem;
+	font-size: 0.9rem;
+`;
+
+export { Wrapper, Image, Input, Button, Label, Group, Message };
