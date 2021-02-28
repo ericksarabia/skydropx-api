@@ -42,7 +42,7 @@ const GlobalStyles = createGlobalStyle`
 	button {
 		text-transform: uppercase;
 		font-weight: bold;
-		font-size: 1.5rem;
+		font-size: 1.2rem;
 		background: #4e34e1;
 		color: #fff;
 		border: 0;

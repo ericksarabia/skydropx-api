@@ -8,11 +8,6 @@ const Wrapper = styled.section`
 	height: auto;
 `;
 
-const Image = styled.img`
-	width: 15rem;
-	margin: 2rem;
-`;
-
 const Input = styled.input`
 	width: 20rem;
 	height: 3.5rem;
@@ -42,6 +37,7 @@ const Label = styled.label`
 	color: #04142a;
 	width: 20rem;
 	font-weight: bold;
+	font-size: 1.2rem;
 	margin-bottom: 0.5rem;
 	text-transform: uppercase;
 `;
@@ -60,4 +56,4 @@ const Message = styled.span`
 	font-size: 0.9rem;
 `;
 
-export { Wrapper, Image, Input, Button, Label, Group, Message };
+export { Wrapper, Input, Button, Label, Group, Message };

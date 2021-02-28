@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Container from "../components/Container";
+import Logo from "../components/Logo";
 import Form from "../components/Form";
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
 
 	return (
 		<Container>
+			<Logo alt="skydropx" src="/logo.svg" />
 			<Form
 				handleClick={createShipment}
 				message={error}
