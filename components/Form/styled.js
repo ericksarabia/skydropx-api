@@ -47,13 +47,4 @@ const Group = styled.div`
 	flex-direction: column;
 `;
 
-const Message = styled.span`
-	color: #e56475;
-	font-weight: bold;
-	margin-top: 1rem;
-	text-transform: uppercase;
-	font-size: 1rem;
-	font-size: 0.9rem;
-`;
-
-export { Wrapper, Input, Button, Label, Group, Message };
+export { Wrapper, Input, Button, Label, Group };
