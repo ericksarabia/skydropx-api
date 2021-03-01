@@ -10,10 +10,10 @@ const Packing = ({ body }) => {
 	const [error, setError] = useState("");
 
 	const createShipment = () => {
-		const WEIGHT = document.querySelector("#weight").value;
-		const HEIGHT = document.querySelector("#height").value;
-		const WIDTH = document.querySelector("#width").value;
-		const LENGTH = document.querySelector("#length").value;
+		const WEIGHT = Number(document.querySelector("#weight").value);
+		const HEIGHT = Number(document.querySelector("#height").value);
+		const WIDTH = Number(document.querySelector("#width").value);
+		const LENGTH = Number(document.querySelector("#length").value);
 
 		if (WEIGHT && HEIGHT && WIDTH && LENGTH) {
 			const BODY = Object.assign(body, {
@@ -39,8 +39,7 @@ const Packing = ({ body }) => {
 				.then((response) => response.json())
 				.then(({ data }) => {
 					ROUTER.push({
-						pathname: "/shipment/[id]",
-						query: { id: data.id },
+						pathname: `/shipment/${[data.id]}`,
 					});
 				});
 		} else {
