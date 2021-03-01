@@ -1,10 +1,10 @@
 import { Button, Wrapper, Image, Caption, Thumbnail } from "./styled";
 
-const Card = ({ rate }) => {
+const Card = ({ rate, best, handleClick }) => {
 	const PROVIDER = rate.provider.toLowerCase();
 
 	return (
-		<Wrapper best={rate.best}>
+		<Wrapper best={best}>
 			<Thumbnail>
 				<Image src={`/${PROVIDER}.png` || `/${PROVIDER}.svg`} />
 			</Thumbnail>
@@ -13,11 +13,11 @@ const Card = ({ rate }) => {
 				<p>
 					Entrega estimada: <span>{rate.days} dias</span>
 				</p>
-				<Button best={rate.best}>
+				<Button onClick={() => handleClick(rate.id)} best={best}>
 					{rate.currency_local} {rate.total_pricing}
 				</Button>
 			</Caption>
-			{rate.best && <h3>mejor opción</h3>}
+			{best && <h3>mejor opción</h3>}
 		</Wrapper>
 	);
 };
