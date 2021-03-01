@@ -19,7 +19,7 @@ export const getServerSideProps = async ({ query }) => {
 	const RESPONSE = await fetch(`https://api-demo.skydropx.com/v1/shipments/${query.id}`, {
 		headers: {
 			"Content-Type": "application/json",
-			Authorization: `Token token=${process.env.SKYDROPX_TOKEN}`,
+			Authorization: `Token token=${process.env.NEXT_PUBLIC_SKYDROPX_TOKEN}`,
 		},
 	});
 	const SHIPMENT = await RESPONSE.json();

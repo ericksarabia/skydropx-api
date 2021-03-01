@@ -32,7 +32,7 @@ const Packing = ({ body }) => {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
-					Authorization: `Token token=${process.env.SKYDROPX_TOKEN}`,
+					Authorization: `Token token=${process.env.NEXT_PUBLIC_SKYDROPX_TOKEN}`,
 				},
 				body: JSON.stringify(BODY),
 			})
