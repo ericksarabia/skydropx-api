@@ -21,10 +21,10 @@ const Shipment = ({ rates }) => {
 		setFilter(id);
 		const RATES = rates.map((rate) => rate);
 		if (id === 3) {
-			RATES.sort((a, b) => (a[value] < b[value] ? 1 : -1));
+			RATES.sort((a, b) => (Number(a[value]) < Number(b[value]) ? 1 : -1));
 			setItems(RATES);
 		} else {
-			RATES.sort((a, b) => (a[value] > b[value] ? 1 : -1));
+			RATES.sort((a, b) => (Number(a[value]) > Number(b[value]) ? 1 : -1));
 			setItems(RATES);
 		}
 	};
