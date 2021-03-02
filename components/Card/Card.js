@@ -1,3 +1,4 @@
+import { string, bool, func, shape, number } from "prop-types";
 import { Button, Wrapper, Image, Caption, Thumbnail } from "./styled";
 
 const Card = ({ rate, best, handleClick }) => {
@@ -20,6 +21,32 @@ const Card = ({ rate, best, handleClick }) => {
 			{best && <h3>mejor opción</h3>}
 		</Wrapper>
 	);
+};
+
+Card.propTypes = {
+	rate: shape({
+		provider: string,
+		service_level_name: string,
+		days: number,
+		id: string,
+		currency_local: string,
+		total_pricing: string,
+	}),
+	best: bool,
+	handleClick: func,
+};
+
+Card.defaultProps = {
+	rate: {
+		provider: "",
+		service_level_name: "",
+		days: 0,
+		id: "",
+		currency_local: "",
+		total_pricing: "",
+	},
+	best: false,
+	handleClick: null,
 };
 
 export default Card;

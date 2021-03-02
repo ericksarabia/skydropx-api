@@ -1,3 +1,4 @@
+import { string, func, shape, arrayOf } from "prop-types";
 import Alert from "../Alert";
 import { Wrapper, Input, Button, Label, Group } from "./styled";
 
@@ -13,5 +14,17 @@ const Form = ({ handleClick, inputs, message }) => (
 		<Button onClick={handleClick}>Aceptar</Button>
 	</Wrapper>
 );
+
+Form.propTypes = {
+	handleClick: func,
+	inputs: arrayOf(shape()),
+	message: string,
+};
+
+Form.defaultProps = {
+	handleClick: null,
+	inputs: [],
+	message: "",
+};
 
 export default Form;

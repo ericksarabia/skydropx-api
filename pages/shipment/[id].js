@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { string, shape, arrayOf } from "prop-types";
 import { createLabel, readShipment } from "../../utils/skydropx";
 import Alert from "../../components/Alert";
 import Container from "../../components/Container";
@@ -75,6 +76,18 @@ export const getServerSideProps = async ({ query }) => {
 			rates,
 		},
 	};
+};
+
+Shipment.propTypes = {
+	rates: arrayOf(
+		shape({
+			id: string,
+		}),
+	),
+};
+
+Shipment.defaultProps = {
+	rates: [],
 };
 
 export default Shipment;

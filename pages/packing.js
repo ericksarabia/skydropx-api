@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { shape } from "prop-types";
 import { createShipment } from "../utils/skydropx";
 import Container from "../components/Container";
 import Logo from "../components/Logo";
@@ -80,6 +81,14 @@ export const getServerSideProps = async ({ query }) => {
 			body: BODY,
 		},
 	};
+};
+
+Packing.propTypes = {
+	body: shape(),
+};
+
+Packing.defaultProps = {
+	body: {},
 };
 
 export default Packing;
