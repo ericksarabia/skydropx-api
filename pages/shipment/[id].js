@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { string, shape, arrayOf } from "prop-types";
 import { createLabel, readShipment } from "../../utils/skydropx";
+import Tabs from "../../components/Tabs";
 import Alert from "../../components/Alert";
 import Container from "../../components/Container";
 import List from "../../components/List";
@@ -12,7 +13,15 @@ import Spinner from "../../components/Spinner";
 const Shipment = ({ rates }) => {
 	const [feedback, setFeedback] = useState("");
 	const [loader, setLoader] = useState(false);
+	const [items, setItems] = useState(rates);
+	const [filter, setFilter] = useState("");
 	const ROUTER = useRouter();
+
+	const applyFilter = (value, id) => {
+		setFilter(id);
+		const RATES = items.sort((a, b) => (a[value] > b[value] ? 1 : -1));
+		setItems(id === 2 ? RATES.reverse() : RATES);
+	};
 
 	const handleClick = (id) => {
 		setLoader(true);
@@ -44,8 +53,17 @@ const Shipment = ({ rates }) => {
 		<>
 			<Container>
 				<Logo alt="skydropx" src="/logo.svg" />
-				<List>
-					{rates.map((rate, index) => (
+				<Tabs
+					handleClick={applyFilter}
+					items={{
+						"Más relevante": "average",
+						"Más rápido": "days",
+						"Menor Precio": "total_pricing",
+						"Mayor Precio": "total_pricing",
+					}}
+				/>
+				<List keys={filter}>
+					{items.map((rate, index) => (
 						<li key={rate.id}>
 							<Card handleClick={handleClick} rate={rate} best={index === 0} />
 						</li>

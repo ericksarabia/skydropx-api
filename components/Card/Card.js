@@ -10,7 +10,7 @@ const Card = ({ rate, best, handleClick }) => {
 				<Image src={`/${PROVIDER}.png` || `/${PROVIDER}.svg`} />
 			</Thumbnail>
 			<Caption>
-				<h1>{rate.service_level_name}</h1>
+				<h2>{rate.service_level_name}</h2>
 				<p>
 					Entrega estimada: <span>{rate.days} días</span>
 				</p>

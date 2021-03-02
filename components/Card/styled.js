@@ -5,8 +5,7 @@ const Wrapper = styled.section`
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	height: 20rem;
-	width: 22rem;
+	height: 22rem;
 	margin-bottom: 2rem;
 	border-radius: 4px;
 	border: ${(props) => (props.best ? "2px solid #60d192" : "2px solid #4e34e1")};
@@ -36,7 +35,7 @@ const Caption = styled.section`
 	width: 90%;
 	height: 40%;
 
-	h1,
+	h2,
 	p {
 		width: 100%;
 	}

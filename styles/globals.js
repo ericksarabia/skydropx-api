@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
 		text-decoration: none;
 	}
 
-	h1 {
+	h1, h2 {
 		margin: 0;
 		font-size: 1.5rem;
 	}
@@ -28,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
 		box-sizing: border-box;
 	}
 
-	ul, li {
+	ul {
 		margin: 0;
 		padding: 0;
 		list-style: none;
