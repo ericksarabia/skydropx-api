@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 const List = styled.ul`
 	display: flex;
-	width: 85%;
+	width: 100%;
 	flex-wrap: wrap;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
-	padding: 1rem;
 	margin-bottom: 4rem;
 
 	> li {
