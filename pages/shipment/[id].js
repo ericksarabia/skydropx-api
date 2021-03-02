@@ -19,8 +19,14 @@ const Shipment = ({ rates }) => {
 
 	const applyFilter = (value, id) => {
 		setFilter(id);
-		const RATES = items.sort((a, b) => (a[value] > b[value] ? 1 : -1));
-		setItems(id === 2 ? RATES.reverse() : RATES);
+		const RATES = rates.map((rate) => rate);
+		if (id === 3) {
+			RATES.sort((a, b) => (a[value] < b[value] ? 1 : -1));
+			setItems(RATES);
+		} else {
+			RATES.sort((a, b) => (a[value] > b[value] ? 1 : -1));
+			setItems(RATES);
+		}
 	};
 
 	const handleClick = (id) => {
@@ -65,7 +71,11 @@ const Shipment = ({ rates }) => {
 				<List keys={filter}>
 					{items.map((rate, index) => (
 						<li key={rate.id}>
-							<Card handleClick={handleClick} rate={rate} best={index === 0} />
+							<Card
+								handleClick={handleClick}
+								rate={rate}
+								best={index === 0 && filter === 0}
+							/>
 						</li>
 					))}
 				</List>
