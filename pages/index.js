@@ -18,7 +18,7 @@ const Home = () => {
 				query: { origin: ORIGIN, destination: DESTINATION },
 			});
 		} else {
-			setError("Todos los campos son obligatorios");
+			setError("Todos los campos son obligatorios.");
 		}
 	};
 
@@ -29,12 +29,12 @@ const Home = () => {
 				handleClick={createShipment}
 				message={error}
 				inputs={[
-					{ id: "origin", label: "origen", placeholder: "Código postal", type: "text" },
+					{ id: "origin", label: "origen", placeholder: "Código postal", type: "number" },
 					{
 						id: "destination",
 						label: "destino",
 						placeholder: "Código postal",
-						type: "text",
+						type: "number",
 					},
 				]}
 			/>

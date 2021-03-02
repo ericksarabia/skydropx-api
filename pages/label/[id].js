@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { readLabel } from "../../utils/skydropx";
 import Anchor from "../../components/Anchor";
 import Container from "../../components/Container";
 import Logo from "../../components/Logo";
@@ -17,12 +18,7 @@ const Label = ({ attributes }) => (
 );
 
 export const getServerSideProps = async ({ query }) => {
-	const RESPONSE = await fetch(`https://api-demo.skydropx.com/v1/labels/${query.id}`, {
-		headers: {
-			"Content-Type": "application/json",
-			Authorization: `Token token=${process.env.NEXT_PUBLIC_SKYDROPX_TOKEN}`,
-		},
-	});
+	const RESPONSE = await readLabel(query.id);
 	const LABEL = await RESPONSE.json();
 	const DATA = LABEL.data || {};
 

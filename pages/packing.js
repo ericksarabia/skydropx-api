@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { createShipment } from "../utils/skydropx";
 import Container from "../components/Container";
 import Logo from "../components/Logo";
 import Form from "../components/Form";
+import Spinner from "../components/Spinner";
 import mock from "../mocks/shipment.json";
 
 const Packing = ({ body }) => {
-	const ROUTER = useRouter();
 	const [error, setError] = useState("");
+	const [loader, setLoader] = useState(false);
+	const ROUTER = useRouter();
 
-	const createShipment = () => {
+	const handleClick = () => {
+		setLoader(true);
 		const WEIGHT = Number(document.querySelector("#weight").value);
 		const HEIGHT = Number(document.querySelector("#height").value);
 		const WIDTH = Number(document.querySelector("#width").value);
@@ -28,14 +32,7 @@ const Packing = ({ body }) => {
 				],
 			});
 
-			fetch("https://api-demo.skydropx.com/v1/shipments", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Token token=${process.env.NEXT_PUBLIC_SKYDROPX_TOKEN}`,
-				},
-				body: JSON.stringify(BODY),
-			})
+			createShipment(BODY)
 				.then((response) => response.json())
 				.then(({ data }) => {
 					ROUTER.push({
@@ -48,19 +45,27 @@ const Packing = ({ body }) => {
 	};
 
 	return (
-		<Container>
-			<Logo alt="skydropx" src="/logo.svg" />
-			<Form
-				handleClick={createShipment}
-				message={error}
-				inputs={[
-					{ id: "weight", label: "peso", placeholder: "Peso (kg)", type: "number" },
-					{ id: "length", label: "largo", placeholder: "Largo (cm)", type: "number" },
-					{ id: "width", label: "ancho", placeholder: "Ancho (cm)", type: "number" },
-					{ id: "height", label: "altura", placeholder: "Altura (cm)", type: "number" },
-				]}
-			/>
-		</Container>
+		<>
+			<Container>
+				<Logo alt="skydropx" src="/logo.svg" />
+				<Form
+					handleClick={handleClick}
+					message={error}
+					inputs={[
+						{ id: "weight", label: "peso", placeholder: "Peso (kg)", type: "number" },
+						{ id: "length", label: "largo", placeholder: "Largo (cm)", type: "number" },
+						{ id: "width", label: "ancho", placeholder: "Ancho (cm)", type: "number" },
+						{
+							id: "height",
+							label: "altura",
+							placeholder: "Altura (cm)",
+							type: "number",
+						},
+					]}
+				/>
+			</Container>
+			{loader && <Spinner />}
+		</>
 	);
 };
 
