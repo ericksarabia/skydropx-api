@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-	position: absolute;
+	position: fixed;
 	top: 0;
 	background: rgba(255, 255, 255, 0.9);
 	width: 100%;
@@ -13,8 +13,8 @@ const Wrapper = styled.div`
 
 const Loader = styled.div`
 	border: 4px solid rgba(0, 0, 0, 0.1);
-	width: 36px;
-	height: 36px;
+	width: 50px;
+	height: 50px;
 	border-radius: 50%;
 	border-left-color: #4e34e1;
 	animation: spin 1s ease infinite;

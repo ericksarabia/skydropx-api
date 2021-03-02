@@ -56,6 +56,10 @@ const Button = styled.button`
 	height: 3rem;
 	font-size: 1.5rem;
 	background: ${(props) => (props.best ? "#60d192" : "#4e34e1")};
+
+	:focus {
+		outline: none;
+	}
 `;
 
 export { Wrapper, Button, Image, Thumbnail, Caption };

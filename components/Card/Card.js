@@ -11,7 +11,7 @@ const Card = ({ rate, best, handleClick }) => {
 			<Caption>
 				<h1>{rate.service_level_name}</h1>
 				<p>
-					Entrega estimada: <span>{rate.days} dias</span>
+					Entrega estimada: <span>{rate.days} días</span>
 				</p>
 				<Button onClick={() => handleClick(rate.id)} best={best}>
 					{rate.currency_local} {rate.total_pricing}

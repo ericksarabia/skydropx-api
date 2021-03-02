@@ -15,8 +15,15 @@ const Input = styled.input`
 	border-radius: 4px;
 	text-align: center;
 	margin-bottom: 1rem;
-	&:focus {
+
+	:focus {
 		outline: none;
+	}
+
+	::-webkit-outer-spin-button,
+	::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
 	}
 `;
 
@@ -28,7 +35,8 @@ const Button = styled.button`
 	color: #fff;
 	border-radius: 4px;
 	margin-top: 1rem;
-	&:focus {
+
+	:focus {
 		outline: none;
 	}
 `;

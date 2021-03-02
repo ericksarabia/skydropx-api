@@ -8,8 +8,13 @@ const Container = styled.div`
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	text-align: center;
+	text-align: left;
 	border: ${(props) => (props.border ? "5px solid #4e34e1" : "0")};
+
+	h1,
+	a {
+		text-align: center;
+	}
 `;
 
 export default Container;
